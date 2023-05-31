@@ -1,10 +1,19 @@
 import './App.css';
-import Nav from './Components/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Missions from './Components/Missions';
+import Myprofile from './Components/Myprofile';
+import Rockets from './Components/Rockets';
 
 function App() {
   return (
     <div className="App">
-      <Nav />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Rockets />} />
+        <Route path="/missions" element={<Missions />} />
+        <Route path="/myprofile" element={<Myprofile />} />
+      </Routes>
     </div>
   );
 }
