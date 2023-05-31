@@ -1,13 +1,20 @@
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
-import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
+import Missions from './Components/Missions';
+import Myprofile from './Components/Myprofile';
+import Rockets from './Components/Rockets';
 
 function App() {
   return (
-    <Router>
+    <div className="App">
       <Navbar />
-    </Router>
+      <Routes>
+        <Route path="/" element={<Rockets />} />
+        <Route path="/missions" element={<Missions />} />
+        <Route path="/myprofile" element={<Myprofile />} />
+      </Routes>
+    </div>
   );
 }
 
