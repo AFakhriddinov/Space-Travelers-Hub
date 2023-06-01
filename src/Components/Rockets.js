@@ -16,7 +16,14 @@ const Rockets = () => {
     <Container className="border-top" fluid>
       {rockets
         && rockets.map((rocket) => (
-          <RocketRender key={rocket.id} rocket={rocket} />
+          <RocketRender
+            key={rocket.id}
+            description={rocket.description}
+            image={rocket.flickr_images[0]}
+            name={rocket.rocket_name}
+            id={rocket.id}
+            reserved={rocket.reserved}
+          />
         ))}
     </Container>
   );
