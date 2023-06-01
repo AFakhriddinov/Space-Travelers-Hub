@@ -13,9 +13,23 @@ export const fetchRockets = createAsyncThunk(
   } //eslint-disable-line
 );
 
-const rocketSlice = createSlice({
+const rocketsSlice = createSlice({
   name: 'rocket',
   initialState,
+  reducers: {
+    bookRocket: (state, action) => {
+      const rocketItems = state.rockets.map((item) => {
+        if (item.id !== action.payload) {
+          return item;
+        }
+        return { ...item, reserved: !item.reserved };
+      });
+      return {
+        ...state,
+        rockets: rocketItems,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchRockets.fulfilled, (state, action) => {
       state.rockets = action.payload;
@@ -23,4 +37,5 @@ const rocketSlice = createSlice({
   },
 });
 
-export default rocketSlice.reducer;
+export const { bookRocket } = rocketsSlice.actions;
+export default rocketsSlice.reducer;
