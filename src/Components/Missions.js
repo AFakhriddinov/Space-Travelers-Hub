@@ -33,6 +33,7 @@ const Missions = () => {
               key={mission.id}
               id={mission.id}
               description={mission.description}
+              reserved={mission.reserved}
             />
           ))}
         </tbody>
