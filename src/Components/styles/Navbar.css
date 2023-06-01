@@ -33,3 +33,8 @@
   text-decoration: underline;
   border-bottom: 2px solid blue;
 }
+
+.separator {
+  background-color: white;
+  color: black;
+}
