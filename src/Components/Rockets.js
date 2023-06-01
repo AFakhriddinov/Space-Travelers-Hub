@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRockets } from '../redux/rockets/RocketSlice';
-import './styles/Rockets.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRockets } from '../redux/rockets/RocketSlice';
+import './styles/Rockets.css';
 
 const Rockets = () => {
   const { rockets } = useSelector((state) => state.rocket);
@@ -15,28 +16,24 @@ const Rockets = () => {
   }, [dispatch]);
 
   return (
-    <Container>
-      <Row>
-        <Col>
-        <hr />
-      <ul>
-        {rockets.map((rocket) => (
-          <li key={rocket.id}>
-            {rocket.rocket_name}
+    <Container className="border-top" fluid>
+      {rockets.map((rocket) => (
+        <Row className="m-4" key={rocket.rocket_id}>
+          <Col lg={2} className="m-2">
             <img
-              className='rocket-images'
-              alt=''
+              className="rocket-images"
+              alt=""
               src={rocket.flickr_images[0]}
             />
-          </li>
-        ))}
-      </ul></Col>
-        <Col>2 of 2</Col>
-      </Row>
+          </Col>
+          <Col lg={8} className="m-2">
+            <h4>{rocket.rocket_name}</h4>
+            <p>{rocket.description}</p>
+            <Button variant="primary">Reserve rocket</Button>
+          </Col>
+        </Row>
+      ))}
     </Container>
-    <div>
-      
-    </div>
   );
 };
 
