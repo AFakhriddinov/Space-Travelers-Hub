@@ -5,19 +5,19 @@ import Missions from '../Components/Missions';
 
 jest.mock('react-redux');
 
-describe('Should render correct missions', () => {
-  test('Should render missions', () => {
+describe('Should display correct missions', () => {
+  test('Should display missions', () => {
     const mockedArray = [
       {
         id: '1',
         name: 'Mission 1',
-        description: 'Mission 1',
+        description: 'Mission 1 is good',
         reserved: true,
       },
       {
         id: '2',
         name: 'Mission 2',
-        description: 'Mission 2 ',
+        description: 'Mission 2 is useful ',
         reserved: false,
       },
     ];
