@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import MyProfile from '../Components/MyProfile';
+import Myprofile from '../Components/Myprofile';
 
 const mockedStore = configureStore([]);
 
@@ -26,7 +26,7 @@ const store = mockedStore(initialState);
 test('should display rockets and missions on profile page', () => {
   const { getByText } = render(
     <Provider store={store}>
-      <MyProfile />
+      <Myprofile />
     </Provider>,
   );
 
