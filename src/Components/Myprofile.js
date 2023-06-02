@@ -30,7 +30,7 @@ const Myprofile = () => {
             {rockets
               .filter((rocket) => rocket.reserved)
               .map((reserved) => (
-                <tr key={reserved.id}>
+                <tr key={reserved.rocket_id}>
                   <td>{reserved.rocket_name}</td>
                 </tr>
               ))}

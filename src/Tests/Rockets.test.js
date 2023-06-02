@@ -11,14 +11,14 @@ describe('Display rockets', () => {
     const mockedArray = {
       rockets: [
         {
-          id: 1,
-          name: 'Falcon 1',
+          rocket_id: 1,
+          rocket_name: 'Falcon 1',
           description: 'Falcon 1 is good',
           reserved: false,
         },
         {
-          id: 2,
-          name: 'Falcon 2',
+          rocket_id: 2,
+          rocket_name: 'Falcon 2',
           description: 'Falcon 2 is huge',
           reserved: false,
         },
@@ -34,7 +34,7 @@ describe('Display rockets', () => {
       </Provider>,
     );
 
-    const rocketsList = screen.getAllByRole('listitem');
+    const rocketsList = screen.getAllByRole('heading');
     expect(rocketsList).toHaveLength(mockedArray.rockets.length);
   });
 });

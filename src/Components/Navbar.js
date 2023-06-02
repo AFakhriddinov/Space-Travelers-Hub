@@ -11,9 +11,9 @@ const Navbar = () => (
     <ul className="links">
       <li>
         <NavLink
-          exact
+          exact="true"
           to="/"
-          activeClassName="active"
+          activeclassname="active"
           style={{ textDecoration: 'none' }}
         >
           Rockets

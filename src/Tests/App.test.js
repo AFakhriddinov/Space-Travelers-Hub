@@ -9,6 +9,6 @@ test('renders space', () => {
       <App />
     </Provider>,
   );
-  const navElement = screen.getByText(/Space Travelers hub/i);
+  const navElement = screen.getByText(/Space Travelers' Hub/i);
   expect(navElement).toBeInTheDocument();
 });

@@ -1,13 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import Missions from '../Components/Missions';
 
 jest.mock('react-redux');
 
-describe('Should render correct missions', () => {
-  test('Should render missions', () => {
+describe('Should display correct missions', () => {
+  test('Should display missions', () => {
     const mockedArray = [
       {
         id: '1',
@@ -18,16 +17,17 @@ describe('Should render correct missions', () => {
       {
         id: '2',
         name: 'Mission 2',
-        description: 'Description 2 is nice',
+        description: 'Mission 2 is useful ',
         reserved: false,
       },
     ];
 
     useSelector.mockReturnValue(mockedArray);
     useDispatch.mockReturnValue(jest.fn());
+
     render(<Missions />);
 
-    const missionsLen = screen.getAllByText(/Mission /i);
+    const missionsLen = screen.getAllByRole('rowgroup');
     expect(missionsLen).toHaveLength(mockedArray.length);
   });
 });

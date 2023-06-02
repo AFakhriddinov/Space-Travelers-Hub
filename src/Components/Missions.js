@@ -35,15 +35,16 @@ const Missions = () => {
           </tr>
         </thead>
         <tbody>
-          {missions.map((mission) => (
-            <Mission
-              name={mission.name}
-              key={mission.id}
-              id={mission.id}
-              description={mission.description}
-              reserved={mission.reserved}
-            />
-          ))}
+          {missions
+            && missions.map((mission) => (
+              <Mission
+                name={mission.name}
+                key={mission.id}
+                id={mission.id}
+                description={mission.description}
+                reserved={mission.reserved}
+              />
+            ))}
         </tbody>
       </table>
     </div>

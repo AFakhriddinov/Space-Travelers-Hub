@@ -19,7 +19,7 @@ const Rockets = () => {
           <RocketRender
             key={rocket.id}
             description={rocket.description}
-            image={rocket.flickr_images[0]}
+            image={rocket.flickr_images}
             name={rocket.rocket_name}
             id={rocket.id}
             reserved={rocket.reserved}

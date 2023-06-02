@@ -7,16 +7,16 @@ import Myprofile from '../Components/Myprofile';
 const mockedStore = configureStore([]);
 
 const initialState = {
-  rockets: {
-    rockets: [
-      { id: 1, name: 'Falcon 1', reserved: true },
-      { id: 2, name: 'Falcon 2', reserved: false },
-    ],
-  },
   missions: {
     missions: [
-      { mission_id: 1, mission_name: 'Mission for Falcon 1', reserved: true },
-      { mission_id: 2, mission_name: 'Mission for Falcon 2', reserved: false },
+      { id: 1, name: 'Mission 1', reserved: true },
+      { id: 2, name: 'Mission 2', reserved: false },
+    ],
+  },
+  rockets: {
+    rockets: [
+      { rocket_id: 1, rocket_name: 'Rocket  1', reserved: true },
+      { rocket_id: 2, rocket_name: 'Rocket  2', reserved: false },
     ],
   },
 };
@@ -31,9 +31,9 @@ test('should display rockets and missions on profile page', () => {
   );
 
   expect(getByText('My Missions')).toBeInTheDocument();
-  expect(getByText('Mission for Falcon 1')).toBeInTheDocument();
+  expect(getByText('Mission 1')).toBeInTheDocument();
   expect(getByText('My Rockets')).toBeInTheDocument();
-  expect(getByText('Falcon 1')).toBeInTheDocument();
-  const listOfItems = screen.getAllByRole('listitem');
+  expect(getByText('Rocket 1')).toBeInTheDocument();
+  const listOfItems = screen.getAllByRole('cell');
   expect(listOfItems).toHaveLength(2);
 });
