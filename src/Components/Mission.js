@@ -9,12 +9,15 @@ const Mission = ({
   const dispatch = useDispatch();
   return (
     <tr>
-      <th className="heading" scope="row">{name}</th>
+      <th className="heading" scope="row">
+        {name}
+      </th>
       <td className="heading col-lg-7">{description}</td>
       <td className="btns">
         {reserved ? (
           <span className="badge text-bg-primary">Active Member</span>
-        ) : (<span className="badge text-bg-secondary">Not A Member</span>
+        ) : (
+          <span className="badge text-bg-secondary">Not A Member</span>
         )}
       </td>
       <td className="btns">

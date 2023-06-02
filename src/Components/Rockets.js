@@ -5,7 +5,7 @@ import { fetchRockets } from '../redux/rockets/RocketsSlice';
 import RocketRender from './RocketRender';
 
 const Rockets = () => {
-  const rockets = useSelector((state) => state.rockets.rockets);
+  const { rockets } = useSelector((store) => store.rockets);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,7 +16,14 @@ const Rockets = () => {
     <Container className="border-top" fluid>
       {rockets
         && rockets.map((rocket) => (
-          <RocketRender key={rocket.id} rocket={rocket} />
+          <RocketRender
+            key={rocket.id}
+            description={rocket.description}
+            image={rocket.flickr_images[0]}
+            name={rocket.rocket_name}
+            id={rocket.id}
+            reserved={rocket.reserved}
+          />
         ))}
     </Container>
   );

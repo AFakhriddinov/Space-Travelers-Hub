@@ -13,9 +13,13 @@ const Myprofile = () => {
         <h2>My Missions</h2>
         <Table striped bordered>
           <tbody>
-            {missions.filter((mission) => mission.reserved).map(
-              (reserved) => (<tr key={reserved.id}><td>{reserved.name}</td></tr>),
-            )}
+            {missions
+              .filter((mission) => mission.reserved)
+              .map((reserved) => (
+                <tr key={reserved.id}>
+                  <td>{reserved.name}</td>
+                </tr>
+              ))}
           </tbody>
         </Table>
       </div>
@@ -23,9 +27,13 @@ const Myprofile = () => {
         <h2>My Rockets</h2>
         <Table striped bordered>
           <tbody>
-            {rockets.filter((rocket) => rocket.reserved).map(
-              (reserved) => (<tr key={reserved.id}><td>{reserved.name}</td></tr>),
-            )}
+            {rockets
+              .filter((rocket) => rocket.reserved)
+              .map((reserved) => (
+                <tr key={reserved.id}>
+                  <td>{reserved.rocket_name}</td>
+                </tr>
+              ))}
           </tbody>
         </Table>
       </div>

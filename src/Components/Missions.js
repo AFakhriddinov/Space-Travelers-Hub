@@ -20,10 +20,18 @@ const Missions = () => {
       <table className="table table-hover table-striped table-responsive">
         <thead>
           <tr>
-            <th className="heading" scope="col">Missions</th>
-            <th className="heading" scope="col">Description</th>
-            <th className="heading" scope="col">Status</th>
-            <th className="heading" scope="col">{' '}</th>
+            <th className="heading" scope="col">
+              Missions
+            </th>
+            <th className="heading" scope="col">
+              Description
+            </th>
+            <th className="heading" scope="col">
+              Status
+            </th>
+            <th className="heading" scope="col">
+              {' '}
+            </th>
           </tr>
         </thead>
         <tbody>

@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,7 +9,9 @@ import { useState } from 'react';
 import { bookRocket } from '../redux/rockets/RocketsSlice';
 import './styles/Rockets.css';
 
-const RocketRender = ({ rocket }) => {
+const RocketRender = ({
+  name, id, image, description, reserved,
+}) => {
   const dispatch = useDispatch();
 
   const [color, setColor] = useState(false);
@@ -18,37 +19,32 @@ const RocketRender = ({ rocket }) => {
     setColor(!color);
   };
   const handleBooking = () => {
-    dispatch(bookRocket(rocket.id));
+    dispatch(bookRocket(id));
   };
 
   return (
     <Row>
       <Col md={4} lg={3} xl={2} className="m-2">
-        <Image
-          className="rocket-images"
-          src={rocket.flickr_images[0]}
-          alt={rocket.rocket_name}
-        />
+        <Image className="rocket-images" src={image} alt={name} />
       </Col>
       <Col md={8} lg={7} xl={8} className="m-2">
-        <h4>{rocket.rocket_name}</h4>
+        <h4>{name}</h4>
         <p className="m-1">
-          {rocket.reserved && (
+          {reserved && (
             <Badge bg="success" className="m-1">
               Reserved
             </Badge>
           )}
-          {rocket.description}
+          {description}
         </p>
         <Button
-          // className={`${updateColor ? 'cancel-booking' : 'book-rocket'}`}
           onClick={() => {
             handleBooking();
             updateColor();
           }}
           variant={`${color ? 'outline-secondary' : 'primary'}`}
         >
-          {rocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+          {reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
         </Button>
       </Col>
     </Row>
@@ -56,13 +52,11 @@ const RocketRender = ({ rocket }) => {
 };
 
 RocketRender.propTypes = {
-  rocket: PropTypes.shape({
-    flickr_images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    id: PropTypes.string.isRequired,
-    rocket_name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    reserved: PropTypes.bool.isRequired,
-  }).isRequired,
+  image: PropTypes.arrayOf(PropTypes.string).isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  reserved: PropTypes.bool.isRequired,
 };
 
 export default RocketRender;
