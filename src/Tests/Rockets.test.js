@@ -1,7 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
 import Rockets from '../Components/Rockets';
+import store from '../Redux/store';
 
 jest.mock('react-redux');
 
@@ -27,7 +28,11 @@ describe('Display rockets', () => {
     useSelector.mockReturnValue(mockedArray);
     useDispatch.mockReturnValue(jest.fn());
 
-    render(<Rockets />);
+    render(
+      <Provider store={store}>
+        <Rockets />
+      </Provider>,
+    );
 
     const rocketsList = screen.getAllByRole('listitem');
     expect(rocketsList).toHaveLength(mockedArray.rockets.length);
